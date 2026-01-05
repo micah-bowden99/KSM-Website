@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSM | Admin Chaos, Solved</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --light: #f5f5f7;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--primary);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary);
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .dropdown-toggle:hover {
+            color: var(--accent);
+        }
+
+        .dropdown-toggle svg {
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--white);
+            min-width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            padding: 12px;
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background: var(--light);
+        }
+
+        .dropdown-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--primary);
+        }
+
+        .dropdown-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text .tagline {
+            font-size: 1.35rem;
+            color: var(--gray);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .hero-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .comparison-col h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            font-size: 0.9rem;
+        }
+
+        .comparison-col:first-child .comparison-item {
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .comparison-col:last-child .comparison-item {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .services-header {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+
+        .services-header h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .services-header p {
+            font-size: 1.15rem;
+            color: var(--gray);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+
+        .service-header {
+            padding: 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .service-header-content {
+            flex: 1;
+        }
+
+        .service-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .service-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .service-toggle {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .service-card.active .service-toggle {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .service-toggle svg {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card.active .service-toggle svg {
+            transform: rotate(45deg);
+        }
+
+        .service-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .service-card.active .service-content {
+            max-height: 800px;
+        }
+
+        .service-details {
+            padding: 0 32px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .service-details-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .service-details-text p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-benefits {
+            list-style: none;
+        }
+
+        .service-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 0.95rem;
+        }
+
+        .service-benefits li svg {
+            flex-shrink: 0;
+            color: var(--accent);
+            margin-top: 2px;
+        }
+
+        .service-metrics {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .service-metrics h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .metric {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* ROI Section */
+        .roi-section {
+            padding: 120px 60px;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .roi-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .roi-text h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .roi-text p {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .roi-calculator {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .roi-calculator h3 {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+        }
+
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .roi-row:last-of-type {
+            border-bottom: none;
+            padding-top: 24px;
+            margin-top: 8px;
+        }
+
+        .roi-label {
+            opacity: 0.7;
+        }
+
+        .roi-value {
+            font-weight: 600;
+        }
+
+        .roi-total .roi-label,
+        .roi-total .roi-value {
+            font-size: 1.25rem;
+            opacity: 1;
+        }
+
+        .roi-total .roi-value {
+            color: var(--accent);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 60px;
+            background: var(--light);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 18px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+
+        .contact-button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 0 40px;
+            }
+
+            .hero {
+                padding: 120px 40px 80px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.75rem;
+            }
+
+            .services {
+                padding: 80px 40px;
+            }
+
+            .service-details {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-section {
+                padding: 80px 40px;
+            }
+
+            .roi-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .contact {
+                padding: 80px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            nav {
+                padding: 0 24px;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .services {
+                padding: 60px 24px;
+            }
+
+            .services-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-header {
+                padding: 24px;
+            }
+
+            .service-details {
+                padding: 0 24px 24px;
+            }
+
+            .roi-section {
+                padding: 60px 24px;
+            }
+
+            .roi-text h2 {
+                font-size: 2rem;
+            }
+
+            .contact {
+                padding: 60px 24px;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 40px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">KSM</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle">
+                        What We Do
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item" data-service="1">
+                            <h4>Admin Firefighting + Permanent Fix</h4>
+                            <p>Handle your backlog while building systems to prevent it recurring</p>
+                        </div>
+                        <div class="dropdown-item" data-service="2">
+                            <h4>Manual Process Digitisation</h4>
+                            <p>Turn paper forms and spreadsheets into digital workflows</p>
+                        </div>
+                        <div class="dropdown-item" data-service="3">
+                            <h4>System & AI Integration</h4>
+                            <p>Connect your tools so data flows automatically</p>
+                        </div>
+                        <div class="dropdown-item" data-service="4">
+                            <h4>Software Transition Management</h4>
+                            <p>Migrate systems without disruption or data loss</p>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#roi">ROI</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+            <button class="mobile-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>We fix the admin chaos <span>drowning your business</span></h1>
+                <p class="tagline">We jump in, handle the immediate backlog, then build you a system so it never happens again. Most clients recoup our fees in 4-6 months through time saved.</p>
+                <a href="#contact" class="cta-button">Book a Free Assessment</a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>15+</h3>
+                        <p>Hours saved per week</p>
+                    </div>
+                    <div class="stat">
+                        <h3>4-6</h3>
+                        <p>Months to ROI</p>
+                    </div>
+                    <div class="stat">
+                        <h3>$27k</h3>
+                        <p>Average yearly savings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M2 12h20"/>
+                            </svg>
+                        </div>
+                        <h3>The Transformation</h3>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-col">
+                            <h4>Before</h4>
+                            <div class="comparison-item">15 hrs/week data entry</div>
+                            <div class="comparison-item">2-day client response</div>
+                            <div class="comparison-item">Manual error tracking</div>
+                            <div class="comparison-item">Scattered information</div>
+                        </div>
+                        <div class="comparison-col">
+                            <h4>After</h4>
+                            <div class="comparison-item">Automated data flow</div>
+                            <div class="comparison-item">2-hour response time</div>
+                            <div class="comparison-item">Zero manual errors</div>
+                            <div class="comparison-item">Single source of truth</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-header">
+            <h2>What We Do</h2>
+            <p>We make manual, fragmented, time-consuming admin work either disappear or become automatic.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card" data-service="1">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-number">Service 01</div>
+                        <h3>Admin Firefighting + Permanent Fix</h3>
+                        <p>We handle your immediate backlog while building you a streamlined system to prevent it recurring</p>
+                    </div>
+                    <div class="service-toggle">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 4v12M4 10h12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-details">
+                        <div class="service-details-text">
+                            <h4>How It Works</h4>
+                            <p>First, we step in and tackle the mountain of admin work that's been piling up. While we're clearing the backlog, we're also mapping exactly where the bottlenecks are. Then we design and implement systems that prevent the chaos from building up again.</p>
+                            <ul class="service-benefits">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Immediate relief from your admin backlog
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Root cause analysis of why backlogs form
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Permanent systems that prevent recurrence
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="service-metrics">
+                            <h4>Typical Results</h4>
+                            <div class="metric">
+                                <div class="metric-value">15+ hrs</div>
+                                <div class="metric-label">Saved per week on admin tasks</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$35/hr</div>
+                                <div class="metric-label">Cost of admin work eliminated</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">3.5 mo</div>
+                                <div class="metric-label">Average payback period</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card" data-service="2">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-number">Service 02</div>
+                        <h3>Manual Process Digitisation</h3>
+                        <p>We turn your paper forms, spreadsheets, and email chains into structured digital workflows</p>
+                    </div>
+                    <div class="service-toggle">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 4v12M4 10h12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-details">
+                        <div class="service-details-text">
+                            <h4>How It Works</h4>
+                            <p>We audit your current manual processes - the paper forms, the spreadsheets passed between teams, the approval chains stuck in email threads. Then we build digital workflows that capture the same information with less friction and zero paper.</p>
+                            <ul class="service-benefits">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Eliminate paper-based bottlenecks
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Searchable, auditable digital records
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Automatic routing and notifications
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="service-metrics">
+                            <h4>Typical Results</h4>
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">Reduction in paper handling</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">2 hrs</div>
+                                <div class="metric-label">Response time (was 2 days)</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Zero</div>
+                                <div class="metric-label">Lost or misfiled documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card" data-service="3">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-number">Service 03</div>
+                        <h3>System & AI Integration</h3>
+                        <p>We connect your disconnected tools so data flows automatically instead of being manually transferred</p>
+                    </div>
+                    <div class="service-toggle">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 4v12M4 10h12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-details">
+                        <div class="service-details-text">
+                            <h4>How It Works</h4>
+                            <p>Most businesses run 5-10 different software tools that don't talk to each other. We build the bridges - API integrations, automated data syncs, and AI-powered processing - so information flows where it needs to go without human copy-paste.</p>
+                            <ul class="service-benefits">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Eliminate duplicate data entry
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Real-time data synchronisation
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    AI automation for repetitive tasks
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="service-metrics">
+                            <h4>Typical Results</h4>
+                            <div class="metric">
+                                <div class="metric-value">15 hrs</div>
+                                <div class="metric-label">Weekly duplicate entry eliminated</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Data accuracy (no manual errors)</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Real-time</div>
+                                <div class="metric-label">Cross-system visibility</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card" data-service="4">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-number">Service 04</div>
+                        <h3>Software Transition Management</h3>
+                        <p>We manage migrations between systems without disrupting your operations or losing data</p>
+                    </div>
+                    <div class="service-toggle">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 4v12M4 10h12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="service-details">
+                        <div class="service-details-text">
+                            <h4>How It Works</h4>
+                            <p>Switching software is painful - but staying on broken systems is worse. We handle the entire migration: data extraction, cleaning, mapping to the new system, testing, and training. You keep working while we handle the technical heavy lifting.</p>
+                            <ul class="service-benefits">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Zero data loss during migration
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Minimal disruption to operations
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Staff training and documentation
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="service-metrics">
+                            <h4>Typical Results</h4>
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Data successfully migrated</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Zero</div>
+                                <div class="metric-label">Days of operational downtime</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Full</div>
+                                <div class="metric-label">Team trained on new system</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section" id="roi">
+        <div class="roi-content">
+            <div class="roi-text">
+                <h2>The Numbers Don't Lie</h2>
+                <p>We don't talk about "optimisation" or "efficiency gains". We talk about hours saved, money recovered, and problems eliminated. Here's what a typical engagement looks like.</p>
+                <a href="#contact" class="cta-button" style="background: var(--accent);">Calculate Your ROI</a>
+            </div>
+            <div class="roi-calculator">
+                <h3>Typical Project ROI</h3>
+                <div class="roi-row">
+                    <span class="roi-label">Hours saved per week</span>
+                    <span class="roi-value">15 hours</span>
+                </div>
+                <div class="roi-row">
+                    <span class="roi-label">Hourly cost of admin work</span>
+                    <span class="roi-value">$35/hour</span>
+                </div>
+                <div class="roi-row">
+                    <span class="roi-label">Weekly savings</span>
+                    <span class="roi-value">$525</span>
+                </div>
+                <div class="roi-row">
+                    <span class="roi-label">Annual savings</span>
+                    <span class="roi-value">$27,300</span>
+                </div>
+                <div class="roi-row">
+                    <span class="roi-label">Typical project cost</span>
+                    <span class="roi-value">$8,000</span>
+                </div>
+                <div class="roi-row roi-total">
+                    <span class="roi-label">Payback period</span>
+                    <span class="roi-value">3.5 months</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Ready to Eliminate the Chaos?</h2>
+            <p>Book a free 30-minute assessment. We'll map your biggest admin pain points and show you exactly how we'd fix them - with specific hours saved and ROI projected.</p>
+            <a href="mailto:hello@ksm.com" class="contact-button">
+                Book Free Assessment
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="footer-logo">KSM</a>
+            <ul class="footer-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#roi">ROI</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="mailto:hello@ksm.com">hello@ksm.com</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+
+        dropdownToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Dropdown items link to services
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const serviceNum = item.dataset.service;
+                const serviceCard = document.querySelector(`.service-card[data-service="${serviceNum}"]`);
+
+                dropdown.classList.remove('active');
+
+                // Scroll to services section
+                serviceCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Open the service card
+                setTimeout(() => {
+                    document.querySelectorAll('.service-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    serviceCard.classList.add('active');
+                }, 500);
+            });
+        });
+
+        // Service cards accordion
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        serviceCards.forEach(card => {
+            const header = card.querySelector('.service-header');
+
+            header.addEventListener('click', () => {
+                const isActive = card.classList.contains('active');
+
+                // Close all cards
+                serviceCards.forEach(c => c.classList.remove('active'));
+
+                // Toggle clicked card
+                if (!isActive) {
+                    card.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

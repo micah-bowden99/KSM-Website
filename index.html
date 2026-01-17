@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSM | Admin Chaos, Solved</title>
+    <title>BasePoint AI | AI Independence for Australian Business</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -572,6 +572,146 @@
             color: var(--accent);
         }
 
+        /* Pricing Section */
+        .pricing-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .pricing-header p {
+            font-size: 1.15rem;
+            opacity: 0.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px 32px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .pricing-card.featured {
+            background: rgba(233, 69, 96, 0.15);
+            border-color: var(--accent);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-tier {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .pricing-desc {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            background: var(--white);
+            color: var(--primary);
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pricing-note p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
         /* Contact Section */
         .contact {
             padding: 120px 60px;
@@ -656,6 +796,28 @@
             opacity: 1;
         }
 
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            opacity: 1;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             nav {
@@ -694,6 +856,12 @@
 
             .contact {
                 padding: 80px 40px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
 
@@ -776,39 +944,39 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#" class="logo">KSM</a>
+            <a href="#" class="logo">BasePoint AI</a>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">What We Do</a></li>
                 <li class="dropdown">
                     <button class="dropdown-toggle">
-                        What We Do
+                        Training
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="dropdown-menu">
                         <div class="dropdown-item" data-service="1">
-                            <h4>Admin Firefighting + Permanent Fix</h4>
-                            <p>Handle your backlog while building systems to prevent it recurring</p>
+                            <h4>AI Readiness Assessment</h4>
+                            <p>Structured evaluation of your team's current AI capability</p>
                         </div>
                         <div class="dropdown-item" data-service="2">
-                            <h4>Manual Process Digitisation</h4>
-                            <p>Turn paper forms and spreadsheets into digital workflows</p>
+                            <h4>Role-Based Training</h4>
+                            <p>Tailored AI training matched to each role's needs</p>
                         </div>
                         <div class="dropdown-item" data-service="3">
-                            <h4>System & AI Integration</h4>
-                            <p>Connect your tools so data flows automatically</p>
+                            <h4>Implementation Guidance</h4>
+                            <p>Practical support for AI adoption in your operations</p>
                         </div>
                         <div class="dropdown-item" data-service="4">
-                            <h4>Software Transition Management</h4>
-                            <p>Migrate systems without disruption or data loss</p>
+                            <h4>Enterprise SCORM Packages</h4>
+                            <p>LMS-ready courses for large-scale deployment</p>
                         </div>
                     </div>
                 </li>
-                <li><a href="#roi">ROI</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Get Started</a>
+            <a href="#contact" class="cta-button">Free Assessment</a>
             <button class="mobile-toggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -821,21 +989,21 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>We fix the admin chaos <span>drowning your business</span></h1>
-                <p class="tagline">We jump in, handle the immediate backlog, then build you a system so it never happens again. Most clients recoup our fees in 4-6 months through time saved.</p>
+                <h1>Build AI capability. <span>Not consultant dependency.</span></h1>
+                <p class="tagline">We help Australian businesses build internal AI capability so they can compete confidently in an AI-transformed world - without being dependent on consultants forever or falling behind competitors who are moving faster.</p>
                 <a href="#contact" class="cta-button">Book a Free Assessment</a>
                 <div class="hero-stats">
                     <div class="stat">
-                        <h3>15+</h3>
-                        <p>Hours saved per week</p>
+                        <h3>100%</h3>
+                        <p>Self-sufficient teams</p>
                     </div>
                     <div class="stat">
-                        <h3>4-6</h3>
-                        <p>Months to ROI</p>
+                        <h3>SCORM</h3>
+                        <p>LMS-ready courses</p>
                     </div>
                     <div class="stat">
-                        <h3>$27k</h3>
-                        <p>Average yearly savings</p>
+                        <h3>Role</h3>
+                        <p>Tailored training</p>
                     </div>
                 </div>
             </div>
@@ -847,22 +1015,22 @@
                                 <path d="M12 2v20M2 12h20"/>
                             </svg>
                         </div>
-                        <h3>The Transformation</h3>
+                        <h3>Why BasePoint AI?</h3>
                     </div>
                     <div class="comparison">
                         <div class="comparison-col">
-                            <h4>Before</h4>
-                            <div class="comparison-item">15 hrs/week data entry</div>
-                            <div class="comparison-item">2-day client response</div>
-                            <div class="comparison-item">Manual error tracking</div>
-                            <div class="comparison-item">Scattered information</div>
+                            <h4>Others</h4>
+                            <div class="comparison-item">Jargon as a weapon</div>
+                            <div class="comparison-item">Ongoing dependency</div>
+                            <div class="comparison-item">Theory over practice</div>
+                            <div class="comparison-item">One-size-fits-all</div>
                         </div>
                         <div class="comparison-col">
-                            <h4>After</h4>
-                            <div class="comparison-item">Automated data flow</div>
-                            <div class="comparison-item">2-hour response time</div>
-                            <div class="comparison-item">Zero manual errors</div>
-                            <div class="comparison-item">Single source of truth</div>
+                            <h4>BasePoint AI</h4>
+                            <div class="comparison-item">Plain business language</div>
+                            <div class="comparison-item">Self-sufficiency goal</div>
+                            <div class="comparison-item">Practical implementation</div>
+                            <div class="comparison-item">Role-matched training</div>
                         </div>
                     </div>
                 </div>
@@ -874,16 +1042,16 @@
     <section class="services" id="services">
         <div class="services-header">
             <h2>What We Do</h2>
-            <p>We make manual, fragmented, time-consuming admin work either disappear or become automatic.</p>
+            <p>We help Australian businesses build internal AI capability so they can compete confidently - without being dependent on consultants forever.</p>
         </div>
         <div class="services-grid">
             <!-- Service 1 -->
             <div class="service-card" data-service="1">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Service 01</div>
-                        <h3>Admin Firefighting + Permanent Fix</h3>
-                        <p>We handle your immediate backlog while building you a streamlined system to prevent it recurring</p>
+                        <div class="service-number">Step 01</div>
+                        <h3>AI Readiness Assessment</h3>
+                        <p>A structured evaluation to understand where your team is now and what they need to succeed with AI</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -895,41 +1063,41 @@
                     <div class="service-details">
                         <div class="service-details-text">
                             <h4>How It Works</h4>
-                            <p>First, we step in and tackle the mountain of admin work that's been piling up. While we're clearing the backlog, we're also mapping exactly where the bottlenecks are. Then we design and implement systems that prevent the chaos from building up again.</p>
+                            <p>We start by understanding your current state - not just your tech stack, but your team's actual comfort level with AI, your operational constraints, and your business goals. This assessment informs everything that follows, ensuring we prescribe training that matches capability to role.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Immediate relief from your admin backlog
+                                    Evaluate current AI understanding across roles
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Root cause analysis of why backlogs form
+                                    Identify high-impact AI opportunities
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Permanent systems that prevent recurrence
+                                    Map training needs to specific roles
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>Typical Results</h4>
+                            <h4>What You Get</h4>
                             <div class="metric">
-                                <div class="metric-value">15+ hrs</div>
-                                <div class="metric-label">Saved per week on admin tasks</div>
+                                <div class="metric-value">Clear</div>
+                                <div class="metric-label">Capability gap analysis</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">$35/hr</div>
-                                <div class="metric-label">Cost of admin work eliminated</div>
+                                <div class="metric-value">Tailored</div>
+                                <div class="metric-label">Training recommendations</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">3.5 mo</div>
-                                <div class="metric-label">Average payback period</div>
+                                <div class="metric-value">Practical</div>
+                                <div class="metric-label">Implementation roadmap</div>
                             </div>
                         </div>
                     </div>
@@ -940,9 +1108,9 @@
             <div class="service-card" data-service="2">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Service 02</div>
-                        <h3>Manual Process Digitisation</h3>
-                        <p>We turn your paper forms, spreadsheets, and email chains into structured digital workflows</p>
+                        <div class="service-number">Step 02</div>
+                        <h3>Role-Based AI Training</h3>
+                        <p>Tailored training that matches capability to role - not everyone needs the same depth</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -954,41 +1122,41 @@
                     <div class="service-details">
                         <div class="service-details-text">
                             <h4>How It Works</h4>
-                            <p>We audit your current manual processes - the paper forms, the spreadsheets passed between teams, the approval chains stuck in email threads. Then we build digital workflows that capture the same information with less friction and zero paper.</p>
+                            <p>We deliver training that's practical, not theoretical. Your operations team learns different things than your managers. Your customer service staff need different skills than your analysts. We translate AI into plain business language and focus on what actually works in your operations.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Eliminate paper-based bottlenecks
+                                    Training matched to actual job functions
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Searchable, auditable digital records
+                                    Hands-on exercises with real scenarios
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Automatic routing and notifications
+                                    No jargon - plain business language
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>Typical Results</h4>
+                            <h4>What You Get</h4>
                             <div class="metric">
-                                <div class="metric-value">90%</div>
-                                <div class="metric-label">Reduction in paper handling</div>
+                                <div class="metric-value">Confident</div>
+                                <div class="metric-label">Teams using AI independently</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">2 hrs</div>
-                                <div class="metric-label">Response time (was 2 days)</div>
+                                <div class="metric-value">Practical</div>
+                                <div class="metric-label">Skills they can use immediately</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Zero</div>
-                                <div class="metric-label">Lost or misfiled documents</div>
+                                <div class="metric-value">Lasting</div>
+                                <div class="metric-label">Capability that stays in-house</div>
                             </div>
                         </div>
                     </div>
@@ -999,9 +1167,9 @@
             <div class="service-card" data-service="3">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Service 03</div>
-                        <h3>System & AI Integration</h3>
-                        <p>We connect your disconnected tools so data flows automatically instead of being manually transferred</p>
+                        <div class="service-number">Step 03</div>
+                        <h3>Implementation Guidance</h3>
+                        <p>Practical support to embed AI into your actual operations, with your actual constraints</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -1013,41 +1181,41 @@
                     <div class="service-details">
                         <div class="service-details-text">
                             <h4>How It Works</h4>
-                            <p>Most businesses run 5-10 different software tools that don't talk to each other. We build the bridges - API integrations, automated data syncs, and AI-powered processing - so information flows where it needs to go without human copy-paste.</p>
+                            <p>Training without implementation is just theory. We guide your team through actually using AI in their daily work - solving real problems, building real workflows, and developing real confidence. Everything we recommend has to work in your actual operations, for your actual people.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Eliminate duplicate data entry
+                                    Guided implementation in real workflows
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Real-time data synchronisation
+                                    Problem-solving support during adoption
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    AI automation for repetitive tasks
+                                    Handover when you're self-sufficient
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>Typical Results</h4>
+                            <h4>Our Goal</h4>
                             <div class="metric">
-                                <div class="metric-value">15 hrs</div>
-                                <div class="metric-label">Weekly duplicate entry eliminated</div>
+                                <div class="metric-value">Independence</div>
+                                <div class="metric-label">You run it yourself</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">100%</div>
-                                <div class="metric-label">Data accuracy (no manual errors)</div>
+                                <div class="metric-value">Sustainable</div>
+                                <div class="metric-label">Processes that stick</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Real-time</div>
-                                <div class="metric-label">Cross-system visibility</div>
+                                <div class="metric-value">Complete</div>
+                                <div class="metric-label">When you don't need us</div>
                             </div>
                         </div>
                     </div>
@@ -1058,9 +1226,9 @@
             <div class="service-card" data-service="4">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Service 04</div>
-                        <h3>Software Transition Management</h3>
-                        <p>We manage migrations between systems without disrupting your operations or losing data</p>
+                        <div class="service-number">Enterprise</div>
+                        <h3>SCORM Training Packages</h3>
+                        <p>LMS-ready AI training courses for large-scale deployment across your organisation</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -1072,41 +1240,41 @@
                     <div class="service-details">
                         <div class="service-details-text">
                             <h4>How It Works</h4>
-                            <p>Switching software is painful - but staying on broken systems is worse. We handle the entire migration: data extraction, cleaning, mapping to the new system, testing, and training. You keep working while we handle the technical heavy lifting.</p>
+                            <p>For organisations needing to train at scale, we deliver our courses in SCORM 1.2 format - compatible with all major corporate LMS platforms. This allows you to deploy consistent AI training across hundreds or thousands of employees through your existing learning infrastructure.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Zero data loss during migration
+                                    SCORM 1.2 format for all corporate LMS
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Minimal disruption to operations
+                                    Track completion and progress centrally
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Staff training and documentation
+                                    Deploy to thousands of employees at once
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>Typical Results</h4>
+                            <h4>Enterprise Benefits</h4>
                             <div class="metric">
-                                <div class="metric-value">100%</div>
-                                <div class="metric-label">Data successfully migrated</div>
+                                <div class="metric-value">Scale</div>
+                                <div class="metric-label">Train entire organisations</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Zero</div>
-                                <div class="metric-label">Days of operational downtime</div>
+                                <div class="metric-value">Track</div>
+                                <div class="metric-label">Full LMS integration</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Full</div>
-                                <div class="metric-label">Team trained on new system</div>
+                                <div class="metric-value">Consistent</div>
+                                <div class="metric-label">Same quality everywhere</div>
                             </div>
                         </div>
                     </div>
@@ -1115,40 +1283,58 @@
         </div>
     </section>
 
-    <!-- ROI Section -->
-    <section class="roi-section" id="roi">
-        <div class="roi-content">
-            <div class="roi-text">
-                <h2>The Numbers Don't Lie</h2>
-                <p>We don't talk about "optimisation" or "efficiency gains". We talk about hours saved, money recovered, and problems eliminated. Here's what a typical engagement looks like.</p>
-                <a href="#contact" class="cta-button" style="background: var(--accent);">Calculate Your ROI</a>
+    <!-- Pricing Section -->
+    <section class="roi-section" id="pricing">
+        <div class="pricing-content">
+            <div class="pricing-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the tier that matches your organisation's size and needs. Annual licensing keeps costs predictable.</p>
             </div>
-            <div class="roi-calculator">
-                <h3>Typical Project ROI</h3>
-                <div class="roi-row">
-                    <span class="roi-label">Hours saved per week</span>
-                    <span class="roi-value">15 hours</span>
+            <div class="pricing-grid">
+                <!-- Tier 1: Small Biz -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Small Business</div>
+                    <div class="pricing-price">$990<span>/year</span></div>
+                    <div class="pricing-desc">per module set</div>
+                    <ul class="pricing-features">
+                        <li>Shared Moodle platform access</li>
+                        <li>Complete AI training modules</li>
+                        <li>Self-paced learning</li>
+                        <li>Perfect for small teams</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">Get Started</a>
                 </div>
-                <div class="roi-row">
-                    <span class="roi-label">Hourly cost of admin work</span>
-                    <span class="roi-value">$35/hour</span>
+                <!-- Tier 2: Mid-Market -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-tier">Mid-Market</div>
+                    <div class="pricing-price">$149-199<span>/user/year</span></div>
+                    <div class="pricing-desc">plus base module set</div>
+                    <ul class="pricing-features">
+                        <li>Individual learner tracking</li>
+                        <li>Progress reporting per user</li>
+                        <li>Manager dashboards</li>
+                        <li>Completion certificates</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">Get Started</a>
                 </div>
-                <div class="roi-row">
-                    <span class="roi-label">Weekly savings</span>
-                    <span class="roi-value">$525</span>
+                <!-- Tier 3: Enterprise -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-price">$10K-60K<span>/year</span></div>
+                    <div class="pricing-desc">based on company size</div>
+                    <ul class="pricing-features">
+                        <li>SCORM 1.2 files for your LMS</li>
+                        <li>50-250 employees: $10K</li>
+                        <li>250-1K employees: $15K</li>
+                        <li>1K-5K employees: $25K</li>
+                        <li>5K+ employees: $40K-60K</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">Contact Us</a>
                 </div>
-                <div class="roi-row">
-                    <span class="roi-label">Annual savings</span>
-                    <span class="roi-value">$27,300</span>
-                </div>
-                <div class="roi-row">
-                    <span class="roi-label">Typical project cost</span>
-                    <span class="roi-value">$8,000</span>
-                </div>
-                <div class="roi-row roi-total">
-                    <span class="roi-label">Payback period</span>
-                    <span class="roi-value">3.5 months</span>
-                </div>
+            </div>
+            <div class="pricing-note">
+                <p>Perpetual licensing available at 3x annual price. All courses built in SCORM 1.2 format for universal LMS compatibility.</p>
             </div>
         </div>
     </section>
@@ -1156,27 +1342,31 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-content">
-            <h2>Ready to Eliminate the Chaos?</h2>
-            <p>Book a free 30-minute assessment. We'll map your biggest admin pain points and show you exactly how we'd fix them - with specific hours saved and ROI projected.</p>
-            <a href="mailto:hello@ksm.com" class="contact-button">
+            <h2>Ready to Build AI Independence?</h2>
+            <p>Book a free AI Readiness Assessment. We'll evaluate your team's current capability, identify your highest-impact opportunities, and show you exactly what training would make the biggest difference.</p>
+            <a href="mailto:sales@basepointai.com.au" class="contact-button">
                 Book Free Assessment
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833"/>
                 </svg>
             </a>
+            <p style="margin-top: 24px; font-size: 0.95rem;">Or call us: <a href="tel:0449509998" style="color: var(--accent); text-decoration: none; font-weight: 500;">0449 509 998</a></p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <a href="#" class="footer-logo">KSM</a>
+            <a href="#" class="footer-logo">BasePoint AI</a>
             <ul class="footer-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#roi">ROI</a></li>
+                <li><a href="#services">What We Do</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="mailto:hello@ksm.com">hello@ksm.com</a></li>
+                <li><a href="mailto:sales@basepointai.com.au">sales@basepointai.com.au</a></li>
             </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>ABN 83 936 473 323 | <a href="https://www.basepointai.com.au" target="_blank">www.basepointai.com.au</a></p>
         </div>
     </footer>
 

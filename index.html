@@ -572,6 +572,99 @@
             color: var(--accent);
         }
 
+        /* About Section */
+        .about {
+            padding: 120px 60px;
+            background: var(--light);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-header h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-header .vision {
+            font-size: 1.35rem;
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .about-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .about-values {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .about-values h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .value-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .value-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Pricing Section */
         .pricing-content {
             max-width: 1200px;
@@ -863,6 +956,18 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+
+            .about {
+                padding: 80px 40px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -923,6 +1028,22 @@
                 font-size: 2rem;
             }
 
+            .about {
+                padding: 60px 24px;
+            }
+
+            .about-header h2 {
+                font-size: 2rem;
+            }
+
+            .about-header .vision {
+                font-size: 1.1rem;
+            }
+
+            .about-values {
+                padding: 32px 24px;
+            }
+
             footer {
                 padding: 40px 24px;
             }
@@ -946,6 +1067,7 @@
         <nav>
             <a href="#" class="logo">BasePoint AI</a>
             <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#services">What We Do</a></li>
                 <li class="dropdown">
                     <button class="dropdown-toggle">
@@ -1283,6 +1405,51 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-header">
+                <h2>About Us</h2>
+                <p class="vision">"A world where every Australian business confidently uses AI to its full potential."</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Who We Are</h3>
+                    <p>We're BasePoint AI, founded by Micah and Tom – Bachelor-qualified engineers with Master's degrees in Project Management and direct manufacturing operations experience. We're not AI researchers selling theory, and we're not tech consultants selling dependency. We're practical implementers who've worked in real businesses and understand how operations actually function.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Purpose</h3>
+                    <p>We exist to educate, empower, and evolve Australian businesses toward AI independence. We believe businesses shouldn't need consultants forever – they need capability. Our job is to make your team competent and confident, not to create an ongoing revenue stream for ourselves.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Foundation</h3>
+                    <p>Because we're engineers, we understand how to implement complex solutions in real-world constraints. Because we come from operations and project delivery, we know the difference between impressive demos and sustainable processes. Because we value independence, we measure success by how quickly you don't need us anymore.</p>
+                </div>
+            </div>
+            <div class="about-values">
+                <h3>Why BasePoint AI?</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>We don't oversell.</h4>
+                        <p>If you don't need something, we won't recommend it. We'd rather have your trust than a bigger invoice.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>We don't use jargon as a weapon.</h4>
+                        <p>If you don't understand what we're saying, that's our failure, not yours. We translate AI into plain business language.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>We don't create dependency.</h4>
+                        <p>Our job is to make ourselves unnecessary. When you can run with it yourself, we've succeeded.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>We don't deliver theory.</h4>
+                        <p>Everything we recommend has to work in your actual operations, with your actual constraints, for your actual people.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="roi-section" id="pricing">
         <div class="pricing-content">
@@ -1359,6 +1526,7 @@
         <div class="footer-content">
             <a href="#" class="footer-logo">BasePoint AI</a>
             <ul class="footer-links">
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">What We Do</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>

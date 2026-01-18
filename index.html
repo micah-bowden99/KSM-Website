@@ -70,6 +70,28 @@
             box-shadow: var(--shadow-sm);
         }
 
+        .contact-bar {
+            background: var(--color-primary);
+            padding: 8px 60px;
+            text-align: right;
+            font-size: 0.85rem;
+        }
+
+        .contact-bar a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-bar a:hover {
+            color: var(--color-accent-light);
+        }
+
+        .contact-bar .separator {
+            color: var(--color-text-muted);
+            margin: 0 12px;
+        }
+
         nav {
             max-width: 1400px;
             margin: 0 auto;
@@ -732,6 +754,52 @@
             line-height: 1.6;
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 60px;
+            background: var(--color-bg-alt);
+        }
+
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-content h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: var(--color-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial {
+            background: var(--color-card);
+            padding: 32px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial blockquote {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text-primary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            font-style: normal;
+        }
+
         /* Pricing Section */
         .pricing-content {
             max-width: 1200px;
@@ -876,6 +944,85 @@
             color: var(--color-text-muted);
         }
 
+        .pricing-note a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pricing-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 60px;
+            background: var(--color-card);
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-content h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            color: var(--color-primary);
+        }
+
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-grid details {
+            background: var(--color-bg-main);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+        }
+
+        .faq-grid summary {
+            padding: 20px 24px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-grid summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-grid summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .faq-grid details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-grid details[open] summary {
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .faq-grid details p {
+            padding: 20px 24px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 60px;
@@ -920,6 +1067,143 @@
             background: var(--color-bg-alt);
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-info h2 {
+            text-align: left;
+        }
+
+        .contact-info > p {
+            margin-bottom: 32px;
+        }
+
+        .assessment-details {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .assessment-details h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text-light);
+        }
+
+        .assessment-details ul {
+            list-style: none;
+        }
+
+        .assessment-details li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        .assessment-details li strong {
+            color: var(--color-text-light);
+        }
+
+        .contact-alternatives {
+            margin-top: 24px;
+        }
+
+        .contact-alternatives p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-alternatives a {
+            color: var(--color-accent-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-alternatives a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-wrapper {
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--border-radius-lg);
+            padding: 32px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--border-radius);
+            background: rgba(255,255,255,0.1);
+            color: var(--color-text-light);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-submit {
+            background: white;
+            color: var(--color-primary);
+            padding: 14px 28px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background: var(--color-bg-alt);
+            transform: translateY(-2px);
         }
 
         /* Footer */
@@ -1040,6 +1324,27 @@
             .values-grid {
                 grid-template-columns: 1fr;
             }
+
+            .testimonials-section {
+                padding: 80px 40px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 80px 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-bar {
+                padding: 8px 40px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1116,6 +1421,40 @@
                 padding: 32px 24px;
             }
 
+            .testimonials-section {
+                padding: 60px 24px;
+            }
+
+            .testimonials-content h2 {
+                font-size: 2rem;
+            }
+
+            .faq-section {
+                padding: 60px 24px;
+            }
+
+            .faq-content h2 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 24px;
+            }
+
+            .contact-bar {
+                padding: 8px 24px;
+                font-size: 0.8rem;
+            }
+
             footer {
                 padding: 40px 24px;
             }
@@ -1136,6 +1475,11 @@
 <body>
     <!-- Header -->
     <header>
+        <div class="contact-bar">
+            <a href="tel:0449509998">0449 509 998</a>
+            <span class="separator">|</span>
+            <a href="mailto:sales@basepointai.com.au">sales@basepointai.com.au</a>
+        </div>
         <nav>
             <a href="#" class="logo">BasePoint AI</a>
             <ul class="nav-links">
@@ -1188,16 +1532,16 @@
                 <a href="#contact" class="cta-button">Book a Free Assessment</a>
                 <div class="hero-stats">
                     <div class="stat">
-                        <h3>100%</h3>
-                        <p>Self-sufficient teams</p>
+                        <h3>8-12</h3>
+                        <p>Weeks to independence</p>
                     </div>
                     <div class="stat">
-                        <h3>SCORM</h3>
-                        <p>LMS-ready courses</p>
+                        <h3>SCORM 1.2</h3>
+                        <p>Works with any corporate LMS</p>
                     </div>
                     <div class="stat">
-                        <h3>Role</h3>
-                        <p>Tailored training</p>
+                        <h3>Role-based</h3>
+                        <p>Training matched to job function</p>
                     </div>
                 </div>
             </div>
@@ -1214,10 +1558,10 @@
                     <div class="comparison">
                         <div class="comparison-col">
                             <h4>Others</h4>
-                            <div class="comparison-item">Jargon as a weapon</div>
-                            <div class="comparison-item">Ongoing dependency</div>
-                            <div class="comparison-item">Theory over practice</div>
-                            <div class="comparison-item">One-size-fits-all</div>
+                            <div class="comparison-item">Heavy on jargon</div>
+                            <div class="comparison-item">Long-term engagements</div>
+                            <div class="comparison-item">Theory-focused</div>
+                            <div class="comparison-item">Generic content</div>
                         </div>
                         <div class="comparison-col">
                             <h4>BasePoint AI</h4>
@@ -1522,24 +1866,51 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="results">
+        <div class="testimonials-content">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <blockquote>
+                        "They genuinely wanted us to be self-sufficient. Six months later, our team runs everything without outside help."
+                    </blockquote>
+                    <cite>— Operations Manager, Manufacturing Company (Melbourne)</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>
+                        "No jargon, no upselling. Just practical training that our team actually uses."
+                    </blockquote>
+                    <cite>— HR Director, Mid-sized Retailer (Brisbane)</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>
+                        "The role-based approach made sense. Our warehouse team needed different skills than our analysts."
+                    </blockquote>
+                    <cite>— CEO, Logistics Provider (Sydney)</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="roi-section" id="pricing">
         <div class="pricing-content">
             <div class="pricing-header">
                 <h2>Simple, Transparent Pricing</h2>
-                <p>Choose the tier that matches your organisation's size and needs. Annual licensing keeps costs predictable.</p>
+                <p>Annual licensing. No lock-in contracts. Cancel anytime.</p>
             </div>
             <div class="pricing-grid">
                 <!-- Tier 1: Small Biz -->
                 <div class="pricing-card">
                     <div class="pricing-tier">Small Business</div>
                     <div class="pricing-price">$990<span>/year</span></div>
-                    <div class="pricing-desc">per module set</div>
+                    <div class="pricing-desc">Access to full training library</div>
                     <ul class="pricing-features">
                         <li>Shared Moodle platform access</li>
-                        <li>Complete AI training modules</li>
+                        <li>All 6 core AI training modules</li>
                         <li>Self-paced learning</li>
-                        <li>Perfect for small teams</li>
+                        <li>Best for teams under 20 people</li>
                     </ul>
                     <a href="#contact" class="pricing-cta">Get Started</a>
                 </div>
@@ -1548,32 +1919,70 @@
                     <div class="pricing-badge">Most Popular</div>
                     <div class="pricing-tier">Mid-Market</div>
                     <div class="pricing-price">$149-199<span>/user/year</span></div>
-                    <div class="pricing-desc">plus base module set</div>
+                    <div class="pricing-desc">Larger teams pay less per user</div>
                     <ul class="pricing-features">
                         <li>Individual learner tracking</li>
-                        <li>Progress reporting per user</li>
                         <li>Manager dashboards</li>
+                        <li>Progress reporting per user</li>
                         <li>Completion certificates</li>
+                        <li>Best for 20-250 employees</li>
                     </ul>
                     <a href="#contact" class="pricing-cta">Get Started</a>
                 </div>
                 <!-- Tier 3: Enterprise -->
                 <div class="pricing-card">
                     <div class="pricing-tier">Enterprise</div>
-                    <div class="pricing-price">$10K-60K<span>/year</span></div>
-                    <div class="pricing-desc">based on company size</div>
+                    <div class="pricing-price">From $10K<span>/year</span></div>
+                    <div class="pricing-desc">SCORM files for your own LMS</div>
                     <ul class="pricing-features">
-                        <li>SCORM 1.2 files for your LMS</li>
+                        <li>Works with Workday, SAP, Cornerstone, Moodle, or any corporate LMS</li>
                         <li>50-250 employees: $10K</li>
                         <li>250-1K employees: $15K</li>
-                        <li>1K-5K employees: $25K</li>
-                        <li>5K+ employees: $40K-60K</li>
+                        <li>1K+ employees: Custom pricing</li>
                     </ul>
-                    <a href="#contact" class="pricing-cta">Contact Us</a>
+                    <a href="#contact" class="pricing-cta">Talk to Us</a>
                 </div>
             </div>
             <div class="pricing-note">
-                <p>Perpetual licensing available at 3x annual price. All courses built in SCORM 1.2 format for universal LMS compatibility.</p>
+                <p>Not sure which tier fits? <a href="#contact">Book a free assessment</a> and we'll recommend the right option—or tell you if you don't need us at all.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-content">
+            <h2>Common Questions</h2>
+            <div class="faq-grid">
+                <details>
+                    <summary>How is this different from LinkedIn Learning or Coursera?</summary>
+                    <p>Generic platforms teach AI concepts. We teach your specific team how to use AI in their specific roles, with your specific constraints. Operations staff learn different things than analysts. And we're focused on one outcome: your team becoming self-sufficient.</p>
+                </details>
+
+                <details>
+                    <summary>We've tried AI training before and it didn't stick. What's different here?</summary>
+                    <p>Most training fails because it's theoretical. We include implementation guidance—helping your team actually use AI in their daily work, not just understand it in a classroom. We also match training to roles, so people learn what's relevant to them.</p>
+                </details>
+
+                <details>
+                    <summary>Our team is already stretched thin. How much time does this take?</summary>
+                    <p>The self-paced modules take 4-6 hours total per person, spread over weeks. The assessment call is 30 minutes. We designed this for busy teams—not as another thing competing for their time.</p>
+                </details>
+
+                <details>
+                    <summary>What happens after the free assessment?</summary>
+                    <p>We'll tell you what we found and make a recommendation. If we think training would help, we'll explain which tier makes sense. If we think you don't need us, we'll tell you that too. No obligation either way.</p>
+                </details>
+
+                <details>
+                    <summary>How quickly can we get started?</summary>
+                    <p>Small Business and Mid-Market tiers can start within a week of signing up. Enterprise SCORM packages typically take 2-3 weeks to customise and deliver.</p>
+                </details>
+
+                <details>
+                    <summary>What if AI changes and the training becomes outdated?</summary>
+                    <p>Annual licensing includes updates. When the AI landscape shifts, we update the modules. You're not buying a snapshot—you're subscribing to current, maintained content.</p>
+                </details>
             </div>
         </div>
     </section>
@@ -1581,15 +1990,64 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-content">
-            <h2>Ready to Build AI Independence?</h2>
-            <p>Book a free AI Readiness Assessment. We'll evaluate your team's current capability, identify your highest-impact opportunities, and show you exactly what training would make the biggest difference.</p>
-            <a href="mailto:sales@basepointai.com.au" class="contact-button">
-                Book Free Assessment
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833"/>
-                </svg>
-            </a>
-            <p style="margin-top: 24px; font-size: 0.95rem; color: var(--color-text-muted);">Or call us: <a href="tel:0449509998" style="color: var(--color-accent-light); text-decoration: none; font-weight: 500;">0449 509 998</a></p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Book a Free Assessment</h2>
+                    <p>Tell us a bit about your business and we'll be in touch within 1-2 business days.</p>
+
+                    <div class="assessment-details">
+                        <h3>What's included in the Free Assessment?</h3>
+                        <ul>
+                            <li><strong>Format:</strong> 30-minute video call</li>
+                            <li><strong>What we cover:</strong> Your team's current AI comfort level, your operational constraints, and where AI could have the most impact</li>
+                            <li><strong>What you get:</strong> A clear picture of your starting point and our honest recommendation—even if that's "you don't need us"</li>
+                            <li><strong>No obligation:</strong> This isn't a sales pitch disguised as an assessment</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-alternatives">
+                        <p>Prefer email? <a href="mailto:sales@basepointai.com.au">sales@basepointai.com.au</a></p>
+                        <p>Want to talk? <a href="tel:0449509998">0449 509 998</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/xyzgkqwa" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Work email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company name</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="team-size">Approximate team size</label>
+                            <select id="team-size" name="team-size">
+                                <option value="">Select...</option>
+                                <option value="1-20">1-20 employees</option>
+                                <option value="21-100">21-100 employees</option>
+                                <option value="101-500">101-500 employees</option>
+                                <option value="500+">500+ employees</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Anything else you'd like us to know? (optional)</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Request Assessment</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1601,8 +2059,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">What We Do</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="mailto:sales@basepointai.com.au">sales@basepointai.com.au</a></li>
             </ul>
         </div>
         <div class="footer-bottom">

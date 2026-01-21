@@ -233,6 +233,7 @@
             background: none;
             border: none;
             padding: 10px;
+            z-index: 1001;
         }
 
         .mobile-toggle span {
@@ -240,6 +241,59 @@
             height: 2px;
             background: var(--color-text-primary);
             transition: var(--transition);
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color-primary);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-menu-overlay a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-overlay a:hover {
+            color: var(--color-accent-light);
+        }
+
+        .mobile-menu-overlay .cta-button {
+            background: var(--color-accent);
+            color: white;
+            margin-top: 16px;
         }
 
         /* Hero Section */
@@ -1338,6 +1392,19 @@
 
         .form-group select {
             cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f8fafc' d='M2.5 4.5L6 8L9.5 4.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        .form-group select option {
+            background: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 12px;
         }
 
         .form-group textarea {
@@ -1522,12 +1589,26 @@
                 display: flex;
             }
 
+            header .cta-button {
+                display: none;
+            }
+
+            .contact-bar {
+                display: none;
+            }
+
             nav {
-                padding: 0 24px;
+                padding: 0 20px;
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
             }
 
             .hero {
-                padding: 100px 24px 60px;
+                padding: 90px 20px 50px;
+                min-height: auto;
             }
 
             .hero-text h1 {
@@ -1548,11 +1629,53 @@
             }
 
             .service-header {
-                padding: 24px;
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .service-header-content {
+                width: 100%;
+            }
+
+            .service-number {
+                font-size: 0.7rem;
+                margin-bottom: 8px;
+            }
+
+            .service-header h3 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+            }
+
+            .service-header p {
+                font-size: 0.9rem;
+            }
+
+            .service-toggle {
+                width: 40px;
+                height: 40px;
+                align-self: flex-end;
+                margin-top: -56px;
             }
 
             .service-details {
-                padding: 0 24px 24px;
+                padding: 0 20px 20px;
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .service-benefits li {
+                font-size: 0.9rem;
+            }
+
+            .service-metrics {
+                padding: 20px;
+            }
+
+            .metric-value {
+                font-size: 1.5rem;
             }
 
             .process-section {
@@ -1569,6 +1692,29 @@
 
             .process-step-content h3 {
                 font-size: 1.25rem;
+            }
+
+            .process-path {
+                padding: 24px 20px;
+            }
+
+            .process-path-question {
+                font-size: 0.9rem;
+                min-height: auto;
+                margin-bottom: 12px;
+            }
+
+            .process-path h4 {
+                font-size: 1.15rem;
+            }
+
+            .process-path-answer {
+                font-size: 0.85rem;
+            }
+
+            .process-path-icon {
+                width: 48px;
+                height: 48px;
             }
 
             .roi-section {
@@ -1700,6 +1846,16 @@
             </button>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="#about" class="mobile-menu-link">About Us</a>
+        <a href="#process" class="mobile-menu-link">How We Work</a>
+        <a href="#services" class="mobile-menu-link">Services</a>
+        <a href="#pricing" class="mobile-menu-link">Pricing</a>
+        <a href="#faq" class="mobile-menu-link">FAQ</a>
+        <a href="#contact" class="cta-button mobile-menu-link">Free Assessment</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -2341,12 +2497,24 @@
             });
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
         mobileToggle.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            mobileToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
     </script>
 </body>

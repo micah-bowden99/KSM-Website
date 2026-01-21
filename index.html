@@ -261,9 +261,9 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 24px;
             letter-spacing: -1px;
             color: var(--color-primary);
@@ -379,6 +379,163 @@
 
         .comparison-col:last-child .comparison-item {
             color: var(--color-text-primary);
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 60px;
+            background: var(--color-bg-alt);
+        }
+
+        .process-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-header h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-primary);
+        }
+
+        .process-header p {
+            font-size: 1.15rem;
+            color: var(--color-text-secondary);
+        }
+
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .process-step-main {
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--color-accent);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .process-step-number {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .process-step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .process-step-content p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .process-outcome {
+            background: var(--color-accent-bg);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            color: var(--color-text-primary);
+        }
+
+        .process-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+        }
+
+        .process-arrow span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        .process-paths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            width: 100%;
+        }
+
+        .process-path {
+            background: var(--color-card);
+            padding: 32px 24px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .process-path:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+        }
+
+        .process-path-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: var(--color-accent-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+
+        .process-path-question {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-path h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .process-path-answer {
+            font-size: 0.9rem;
+            color: var(--color-text-primary);
+            line-height: 1.5;
             font-weight: 500;
         }
 
@@ -1283,7 +1440,7 @@
             }
 
             .hero-text h1 {
-                font-size: 2.75rem;
+                font-size: 2.5rem;
             }
 
             .services {
@@ -1292,6 +1449,15 @@
 
             .service-details {
                 grid-template-columns: 1fr;
+            }
+
+            .process-section {
+                padding: 80px 40px;
+            }
+
+            .process-paths {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .roi-section {
@@ -1365,7 +1531,7 @@
             }
 
             .hero-text h1 {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
 
             .hero-stats {
@@ -1387,6 +1553,22 @@
 
             .service-details {
                 padding: 0 24px 24px;
+            }
+
+            .process-section {
+                padding: 60px 24px;
+            }
+
+            .process-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-step-main {
+                padding: 28px;
+            }
+
+            .process-step-content h3 {
+                font-size: 1.25rem;
             }
 
             .roi-section {
@@ -1487,27 +1669,23 @@
                 <li><a href="#services">What We Do</a></li>
                 <li class="dropdown">
                     <button class="dropdown-toggle">
-                        Training
+                        Services
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                             <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="dropdown-menu">
                         <div class="dropdown-item" data-service="1">
-                            <h4>AI Readiness Assessment</h4>
-                            <p>Structured evaluation of your team's current AI capability</p>
+                            <h4>Education</h4>
+                            <p>Build AI capability across your team with role-based training</p>
                         </div>
                         <div class="dropdown-item" data-service="2">
-                            <h4>Role-Based Training</h4>
-                            <p>Tailored AI training matched to each role's needs</p>
+                            <h4>Consultation</h4>
+                            <p>Strategic guidance on AI direction and decision-making</p>
                         </div>
                         <div class="dropdown-item" data-service="3">
-                            <h4>Implementation Guidance</h4>
-                            <p>Practical support for AI adoption in your operations</p>
-                        </div>
-                        <div class="dropdown-item" data-service="4">
-                            <h4>Enterprise SCORM Packages</h4>
-                            <p>LMS-ready courses for large-scale deployment</p>
+                            <h4>Solutions</h4>
+                            <p>Practical AI implementation for your operations</p>
                         </div>
                     </div>
                 </li>
@@ -1527,23 +1705,9 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Build AI capability. <span>Not consultant dependency.</span></h1>
-                <p class="tagline">We help Australian businesses build internal AI capability so they can compete confidently in an AI-transformed world - without being dependent on consultants forever or falling behind competitors who are moving faster.</p>
+                <h1>We educate, empower, and evolve <span>Australian businesses toward AI independence.</span></h1>
+                <p class="tagline">We help you build internal AI capability through three pathways: Education, Consultation, and Solutions. Starting with an honest assessment of where you are and what you actually need.</p>
                 <a href="#contact" class="cta-button">Book a Free Assessment</a>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <h3>8-12</h3>
-                        <p>Weeks to independence</p>
-                    </div>
-                    <div class="stat">
-                        <h3>SCORM 1.2</h3>
-                        <p>Works with any corporate LMS</p>
-                    </div>
-                    <div class="stat">
-                        <h3>Role-based</h3>
-                        <p>Training matched to job function</p>
-                    </div>
-                </div>
             </div>
             <div class="hero-visual">
                 <div class="hero-card">
@@ -1576,20 +1740,81 @@
         </div>
     </section>
 
+    <!-- Process Section -->
+    <section class="process-section" id="process">
+        <div class="process-content">
+            <div class="process-header">
+                <h2>How We Work</h2>
+                <p>Every engagement starts the same way: understanding where you are, so we can recommend where you actually need to go.</p>
+            </div>
+            <div class="process-flow">
+                <div class="process-step process-step-main">
+                    <div class="process-step-number">Start Here</div>
+                    <div class="process-step-content">
+                        <h3>Initial Assessment</h3>
+                        <p>A free 30-minute conversation where we understand your team's current AI comfort level, your operational constraints, and your business goals. No sales pitch—just honest evaluation.</p>
+                        <div class="process-outcome">
+                            <strong>Outcome:</strong> You'll know where you stand and what (if anything) would actually help.
+                        </div>
+                    </div>
+                </div>
+                <div class="process-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                    <span>Then we determine the right path</span>
+                </div>
+                <div class="process-paths">
+                    <a href="#services" class="process-path" data-service="1">
+                        <div class="process-path-icon education-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <p class="process-path-question">"Want all your staff speaking the same language with AI?"</p>
+                        <h4>Education</h4>
+                        <p class="process-path-answer">We build consistent AI capability across your team</p>
+                    </a>
+                    <a href="#services" class="process-path" data-service="2">
+                        <div class="process-path-icon consultation-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <p class="process-path-question">"Not sure where to start with AI?"</p>
+                        <h4>Consultation</h4>
+                        <p class="process-path-answer">We provide strategic guidance and honest advice</p>
+                    </a>
+                    <a href="#services" class="process-path" data-service="3">
+                        <div class="process-path-icon solutions-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <p class="process-path-question">"Believe your business could be doing more with AI?"</p>
+                        <h4>Solutions</h4>
+                        <p class="process-path-answer">We build and implement practical AI workflows</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="services-header">
-            <h2>What We Do</h2>
-            <p>We help Australian businesses build internal AI capability so they can compete confidently - without being dependent on consultants forever.</p>
+            <h2>Three Pathways to AI Independence</h2>
+            <p>Based on your assessment, we'll recommend one or more of these—or tell you if you don't need us at all.</p>
         </div>
         <div class="services-grid">
-            <!-- Service 1 -->
+            <!-- Education -->
             <div class="service-card" data-service="1">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Step 01</div>
-                        <h3>AI Readiness Assessment</h3>
-                        <p>A structured evaluation to understand where your team is now and what they need to succeed with AI</p>
+                        <div class="service-number">Education</div>
+                        <h3>Build AI Capability Across Your Team</h3>
+                        <p>Get everyone speaking the same language with AI—from frontline staff to leadership</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -1600,55 +1825,61 @@
                 <div class="service-content">
                     <div class="service-details">
                         <div class="service-details-text">
-                            <h4>How It Works</h4>
-                            <p>We start by understanding your current state - not just your tech stack, but your team's actual comfort level with AI, your operational constraints, and your business goals. This assessment informs everything that follows, ensuring we prescribe training that matches capability to role.</p>
+                            <h4>What This Includes</h4>
+                            <p>Practical AI training delivered in plain business language. We match the depth and focus to each role—your operations team learns different things than your managers. Everything is designed to build lasting capability, not create dependency on us.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Evaluate current AI understanding across roles
+                                    Role-based training matched to job functions
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Identify high-impact AI opportunities
+                                    Self-paced online modules or live workshops
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Map training needs to specific roles
+                                    LMS-ready packages for large organisations
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Progress tracking and completion certificates
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>What You Get</h4>
+                            <h4>Best For</h4>
                             <div class="metric">
-                                <div class="metric-value">Clear</div>
-                                <div class="metric-label">Capability gap analysis</div>
+                                <div class="metric-value">Teams</div>
+                                <div class="metric-label">Who need AI fundamentals</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Tailored</div>
-                                <div class="metric-label">Training recommendations</div>
+                                <div class="metric-value">Organisations</div>
+                                <div class="metric-label">Wanting consistent AI literacy</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Practical</div>
-                                <div class="metric-label">Implementation roadmap</div>
+                                <div class="metric-value">Leaders</div>
+                                <div class="metric-label">Building internal capability</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 2 -->
+            <!-- Consultation -->
             <div class="service-card" data-service="2">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Step 02</div>
-                        <h3>Role-Based AI Training</h3>
-                        <p>Tailored training that matches capability to role - not everyone needs the same depth</p>
+                        <div class="service-number">Consultation</div>
+                        <h3>Strategic AI Guidance</h3>
+                        <p>Expert advice on AI direction, tool selection, and decision-making—without the buzzwords</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -1659,55 +1890,61 @@
                 <div class="service-content">
                     <div class="service-details">
                         <div class="service-details-text">
-                            <h4>How It Works</h4>
-                            <p>We deliver training that's practical, not theoretical. Your operations team learns different things than your managers. Your customer service staff need different skills than your analysts. We translate AI into plain business language and focus on what actually works in your operations.</p>
+                            <h4>What This Includes</h4>
+                            <p>Honest, practical advice on where AI can (and can't) help your business. We help you cut through the hype, evaluate options, and make informed decisions. We'll tell you when something isn't worth pursuing—even if that means less work for us.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Training matched to actual job functions
+                                    AI opportunity assessment for your operations
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Hands-on exercises with real scenarios
+                                    Tool and platform recommendations
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    No jargon - plain business language
+                                    Implementation roadmapping
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Ongoing advisory support as you scale
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>What You Get</h4>
+                            <h4>Best For</h4>
                             <div class="metric">
-                                <div class="metric-value">Confident</div>
-                                <div class="metric-label">Teams using AI independently</div>
+                                <div class="metric-value">Leaders</div>
+                                <div class="metric-label">Making AI investment decisions</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Practical</div>
-                                <div class="metric-label">Skills they can use immediately</div>
+                                <div class="metric-value">Teams</div>
+                                <div class="metric-label">Evaluating AI tools</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Lasting</div>
-                                <div class="metric-label">Capability that stays in-house</div>
+                                <div class="metric-value">Businesses</div>
+                                <div class="metric-label">Planning AI adoption</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Service 3 -->
+            <!-- Solutions -->
             <div class="service-card" data-service="3">
                 <div class="service-header">
                     <div class="service-header-content">
-                        <div class="service-number">Step 03</div>
-                        <h3>Implementation Guidance</h3>
-                        <p>Practical support to embed AI into your actual operations, with your actual constraints</p>
+                        <div class="service-number">Solutions</div>
+                        <h3>Practical AI Implementation</h3>
+                        <p>Hands-on help building AI workflows that work in your actual operations</p>
                     </div>
                     <div class="service-toggle">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
@@ -1718,101 +1955,48 @@
                 <div class="service-content">
                     <div class="service-details">
                         <div class="service-details-text">
-                            <h4>How It Works</h4>
-                            <p>Training without implementation is just theory. We guide your team through actually using AI in their daily work - solving real problems, building real workflows, and developing real confidence. Everything we recommend has to work in your actual operations, for your actual people.</p>
+                            <h4>What This Includes</h4>
+                            <p>We help you build and deploy AI solutions that solve real problems. Not impressive demos that never get used—practical tools and workflows that your team will actually adopt. We work alongside you until it's running smoothly, then hand it over.</p>
                             <ul class="service-benefits">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Guided implementation in real workflows
+                                    Custom AI workflow development
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Problem-solving support during adoption
+                                    Integration with your existing systems
                                 </li>
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16.667 5L7.5 14.167L3.333 10"/>
                                     </svg>
-                                    Handover when you're self-sufficient
+                                    Team training on the solution we build
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
+                                    </svg>
+                                    Full handover when you're ready to run it
                                 </li>
                             </ul>
                         </div>
                         <div class="service-metrics">
-                            <h4>Our Goal</h4>
+                            <h4>Best For</h4>
                             <div class="metric">
-                                <div class="metric-value">Independence</div>
-                                <div class="metric-label">You run it yourself</div>
+                                <div class="metric-value">Businesses</div>
+                                <div class="metric-label">With specific AI use cases</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Sustainable</div>
-                                <div class="metric-label">Processes that stick</div>
+                                <div class="metric-value">Teams</div>
+                                <div class="metric-label">Ready to implement</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">Complete</div>
-                                <div class="metric-label">When you don't need us</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="service-card" data-service="4">
-                <div class="service-header">
-                    <div class="service-header-content">
-                        <div class="service-number">Enterprise</div>
-                        <h3>SCORM Training Packages</h3>
-                        <p>LMS-ready AI training courses for large-scale deployment across your organisation</p>
-                    </div>
-                    <div class="service-toggle">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M10 4v12M4 10h12"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="service-content">
-                    <div class="service-details">
-                        <div class="service-details-text">
-                            <h4>How It Works</h4>
-                            <p>For organisations needing to train at scale, we deliver our courses in SCORM 1.2 format - compatible with all major corporate LMS platforms. This allows you to deploy consistent AI training across hundreds or thousands of employees through your existing learning infrastructure.</p>
-                            <ul class="service-benefits">
-                                <li>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
-                                    </svg>
-                                    SCORM 1.2 format for all corporate LMS
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
-                                    </svg>
-                                    Track completion and progress centrally
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M16.667 5L7.5 14.167L3.333 10"/>
-                                    </svg>
-                                    Deploy to thousands of employees at once
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="service-metrics">
-                            <h4>Enterprise Benefits</h4>
-                            <div class="metric">
-                                <div class="metric-value">Scale</div>
-                                <div class="metric-label">Train entire organisations</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">Track</div>
-                                <div class="metric-label">Full LMS integration</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">Consistent</div>
-                                <div class="metric-label">Same quality everywhere</div>
+                                <div class="metric-value">Operations</div>
+                                <div class="metric-label">Needing workflow automation</div>
                             </div>
                         </div>
                     </div>
@@ -1831,7 +2015,7 @@
             <div class="about-grid">
                 <div class="about-card">
                     <h3>Who We Are</h3>
-                    <p>We're BasePoint AI, founded by Micah and Tom – Bachelor-qualified engineers with Master's degrees in Project Management and direct manufacturing operations experience. We're not AI researchers selling theory, and we're not tech consultants selling dependency. We're practical implementers who've worked in real businesses and understand how operations actually function.</p>
+                    <p>We're BasePoint AI, founded by Micah and Tom – engineers with Master's degrees in Project Management and hands-on experience in manufacturing, mining, and technology operations. We're not AI researchers selling theory, and we're not tech consultants selling dependency. We're practical implementers who've worked in real businesses and understand how operations actually function.</p>
                 </div>
                 <div class="about-card">
                     <h3>Our Purpose</h3>
@@ -1933,7 +2117,7 @@
                 <div class="pricing-card">
                     <div class="pricing-tier">Enterprise</div>
                     <div class="pricing-price">From $10K<span>/year</span></div>
-                    <div class="pricing-desc">SCORM files for your own LMS</div>
+                    <div class="pricing-desc">LMS-ready training for your own platform</div>
                     <ul class="pricing-features">
                         <li>Works with Workday, SAP, Cornerstone, Moodle, or any corporate LMS</li>
                         <li>50-250 employees: $10K</li>
@@ -1976,7 +2160,7 @@
 
                 <details>
                     <summary>How quickly can we get started?</summary>
-                    <p>Small Business and Mid-Market tiers can start within a week of signing up. Enterprise SCORM packages typically take 2-3 weeks to customise and deliver.</p>
+                    <p>Small Business and Mid-Market tiers can start within a week of signing up. Enterprise LMS packages typically take 2-3 weeks to customise and deliver.</p>
                 </details>
 
                 <details>
@@ -2092,6 +2276,27 @@
                 const serviceCard = document.querySelector(`.service-card[data-service="${serviceNum}"]`);
 
                 dropdown.classList.remove('active');
+
+                // Scroll to services section
+                serviceCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Open the service card
+                setTimeout(() => {
+                    document.querySelectorAll('.service-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    serviceCard.classList.add('active');
+                }, 500);
+            });
+        });
+
+        // Process pathway cards link to services
+        const processPaths = document.querySelectorAll('.process-path[data-service]');
+        processPaths.forEach(path => {
+            path.addEventListener('click', (e) => {
+                e.preventDefault();
+                const serviceNum = path.dataset.service;
+                const serviceCard = document.querySelector(`.service-card[data-service="${serviceNum}"]`);
 
                 // Scroll to services section
                 serviceCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
